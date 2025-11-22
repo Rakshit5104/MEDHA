@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MEDHA - Smart Study Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<header class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>MEDHA</h1>
+    <p>Enhance your Focus, Memory & Retention with AI-powered Smart Learning</p>
+    <div class="hero-buttons">
+      <button onclick="openLogin()">Login</button>
+      <button class="outline" onclick="openRegister()">Register</button>
+    </div>
+  </div>
+</header>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h2>Login to MEDHA</h2>
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button class="primary">Login</button>
+    <div class="or">OR</div>
+    <button class="google">Continue with Google</button>
+    <p onclick="switchToRegister()">Don't have an account? Register</p>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal" id="registerModal">
+  <div class="modal-box">
+    <h2>Create Account</h2>
+    <input type="text" placeholder="Full Name" />
+    <input type="email" placeholder="Email Address" />
+    <input type="tel" placeholder="Mobile (Optional)" />
+    <input type="date" />
+    <button class="primary" onclick="showOTP()">Send OTP</button>
+  </div>
+</div>
+
+<!-- OTP MODAL -->
+<div class="modal" id="otpModal">
+  <div class="modal-box">
+    <h2>Verify OTP</h2>
+    <p>Enter the 6-digit OTP sent to your Email / Mobile</p>
+    <input type="text" placeholder="Enter OTP" maxlength="6" />
+    <button class="primary">Verify & Login</button>
+  </div>
+</div>
+
+<script>
+function openLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+}
+function openRegister() {
+  document.getElementById('registerModal').style.display = 'flex';
+}
+function showOTP() {
+  document.getElementById('registerModal').style.display = 'none';
+  document.getElementById('otpModal').style.display = 'flex';
+}
+function switchToRegister() {
+  document.getElementById('loginModal').style.display = 'none';
+  openRegister();
+}
+window.onclick = function(e) {
+  if (e.target.classList.contains('modal')) {
+    e.target.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>
